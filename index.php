@@ -3,6 +3,24 @@
 <head>
     <title>Login</title>
     <link rel="stylesheet" href="loginstyle.css">
+    <script>
+        function user_list(str) {
+            if (str == "") {
+                // document.getElementById("ds").innerHTML = "Select the Option..";
+                return;
+            } else {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("ds").innerHTML = this.responseText;
+                }
+                };
+                xmlhttp.open("GET","user_ajax.php?q="+str,true);
+                xmlhttp.send();
+            }
+        }
+    </script>
+    <script src="./alert.js"></script>
 </head>
 
 <body>
@@ -33,19 +51,12 @@
                 <!-- <button type="submit" class="submit-btn" name="log">Log In</button> -->
             </form>
             <form action="res.php" method="post" id="register" class="input-group">
-                <input type="text" class="input-field" name="r_user" placeholder="User Name" required>
-                <input type="email" class="input-field" name="r_email" placeholder="Email Id" required>
-                <input type="password" class="input-field" name="r_pass" placeholder="Enter Password" >
-                <!-- <input type="text" class="input-field" name="re_r_pass" placeholder="Re-Enter Password"> -->
-                <span id="message" class="download"></span>
-                <input type="checkbox" class="check-box" id="accept" name="accept" value="yes"><span class="download">I agree to the terms &amp; conditions</span>
-                <button type="submit" class="submit-btn" name="res">Register</button>
+                <input type="text" class="input-field" id="u_i" name="r_user" placeholder="User Name" onkeyup="user_list(this.value)" required>
+                <div id="ds"></div>
+                
             </form>
         </div>
 </div>
-    <script src="./st.js">
-    </script>
-    
 </body>
-
+<script src="./st.js"></script>
 </html>

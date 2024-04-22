@@ -15,10 +15,11 @@ $str = $_GET["q"];
                     
      // echo '<span class="download">Download your File hear</span><br>';
     echo '<span class="download">File Name : '.$fp["file_name"].'</span><br><br>';
-    $_SESSIONT["del"]=$fp["file_name"];
-    echo '<a href = "./delete.php">
-    <button type = "button" class="submit-btn"> Delete </button>
-    </a><br>';
+    $_SESSION["del"]=$fp["file_name"];
+    $_SESSION["del_p"]=$fp["file_path"];
+    echo '
+    <button type = "submit" class="submit-btn" name="del_sub"> Delete </button>
+     <br>';
      // echo '<br><br>'.$_POST["s"];
 
 

@@ -1,9 +1,10 @@
+
 var x = document.getElementById("login");
 var y = document.getElementById("register");
 var z = document.getElementById("btn");
 var s = document.getElementsByClassName("submit-btn");
 var obj = new Object;
-
+var u_r=0;
 function register() {
     x.style.left = "-400px";
     y.style.left = "50px";
@@ -16,6 +17,17 @@ function login() {
     z.style.left = "0px";
 }
 
+const bt = document.getElementById('sub_btn');
+function s_btn_t(){
+bt.disabled = true;
+}
+function s_btn_f(){
+bt.disabled = false;
+}
+// const ui = document.querySelectorAll('#u_i');
+// ui.addEventListener('keyup',()=>{
+//       console.log(ui.value);
+// });
 function SubmitEventLogin() {
 
     alert("Log in sacsessfully");
@@ -98,3 +110,4 @@ function user_alert(str,path){
 //        alert("Password is correct");  
 //     }  
 //   }  
+

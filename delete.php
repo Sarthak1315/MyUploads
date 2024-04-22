@@ -4,6 +4,23 @@ $user_name = $_SESSION["user_name"];
 $_SESSION['user_name']=$user_name;
 $obj = new con();
 $con = $obj->c;
+if(isset($_POST["del_sub"])){
+            $del_f=$_SESSION["del"];
+          $del= $_SESSION["del_p"];
+            // echo "<script>alert('".$del."');</script>";
+          if(unlink($_SESSION["del_p"])){
+              $del_sql = "DELETE FROM `up_detail` WHERE user_name = '$user_name' AND file_name='$del_f';";
+                $del_r = $con->query($del_sql);
+                if($del_r){
+                    echo "<script>alert('File Deleted');</script>";
+                }else{
+                    echo "<script>alert('File Not Deleted in Database');</script>";
+                }
+              
+          }else{
+              echo "<script>alert('File Not Deleted');</script>";
+          }
+        }
 $sql = "SELECT * FROM `up_detail` WHERE user_name = '$user_name';";
 $r = $con->query($sql);
 $_SESSION["log"]=1;
@@ -25,10 +42,7 @@ $_SESSION["log"]=1;
 //         </a><br><br>';
 //     // echo '<br><br>'.$_POST["s"];
 // }
-// if(isset($_POST["del"])){
-//     $del= $_POST["del"];
-//     echo $del;
-// }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,16 +75,8 @@ function download(str) {
 
     <div class="hero">
         <div class="form-box">
-        <?php
-        if(isset($_SESSION["del"])){
-          $del= $_SESSION["del"];
-          echo "<h1>$del</h1>";
-        }
-    
-    
-    ?>
             <h1 class="head_delete">Delete File</h1>
-            <form id="login" class="input-group" action="download.php" method="post" class="input-group">
+            <form id="login" class="input-group" action="delete.php" method="post" class="input-group">
                 <label for="Name" class="lab">User Name :</label>
                 <input type="text" name="name" class="input-field" value="<?php echo $user_name; ?>" readonly><br><br>
                 <label for="file" class="lab">Select Your File : </label>

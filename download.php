@@ -36,6 +36,8 @@ $_SESSION["log"]=1;
     <title>Download File</title>
 </head>
 <script>
+
+
 function download(str) {
   if (str == "") {
     document.getElementById("d").innerHTML = "Select the Option..";
