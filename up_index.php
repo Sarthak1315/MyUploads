@@ -22,7 +22,8 @@ if(isset($_SESSION['user_name']) && isset($_SESSION['pass'])){
         // $data=$result->fetch_assoc();
         // print_r($data);
         while($data=$result->fetch_assoc()){
-            if(($user == $data["user_name"]) && ($pass == $data["password"])){
+
+            if(($user == $data["user_name"]) && (password_verify($pass,$data["password"]))){
                 $f_log=1;
                 $log=1;
                 $user_name= $data["user_name"];

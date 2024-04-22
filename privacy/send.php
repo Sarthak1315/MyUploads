@@ -1,40 +1,4 @@
-<?php 
-include "conn.php";
-$obj=new con();
-$con = $obj->c;
-$res=$obj->welcome_user("sarthakpatel1315@gmail.com","sarthak");
-if($res){
-        echo $res;
-    }
-// if(isset($_POST["sub"])){
-//     $res = $obj->send_e($_POST["email"],$_POST["user"]);
-//     if($res){
-//         echo $res;
-//     }
-// }else
-// {
-//     echo "not sub";
-// $sql="select * from login";
-// $result = $con->query($sql);
-        // $data=$result->fetch_assoc();
-        // print_r($data);
-        // while($data=$result->fetch_assoc()){
-        //     if(!empty($data["email_id"])){
-        //         $res = $obj->send_e($data["email_id"],$data["user_name"]);
-        //         if($res){
-        //             echo $data["user_name"].'='.$res;
-        //         }
-        //         echo $data["user_name"] .'='.$data["email_id"]."<br>";
-        //     }
-           
-                
-        //     }
-// }
 
-
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
