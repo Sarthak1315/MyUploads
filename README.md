@@ -15,7 +15,7 @@ MyUploads is a user-friendly file upload and download website with secure authen
 
 ## Live Website
 
-Experience MyUploads in action [here](https://myuploads.thetechocean.me/).
+Experience MyUploads in action [MyUploads](https://myuploads.thetechocean.me/).
 
 ## Technologies Used
 
